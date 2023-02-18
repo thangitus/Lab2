@@ -1,5 +1,6 @@
-from Vertex import Vertex
 from queue import Queue
+
+from Vertex import Vertex
 
 
 def bfs(start: Vertex):
@@ -16,3 +17,5 @@ def bfs(start: Vertex):
                 nbr.setPred(currentVert)
                 vertQueue.put(nbr)
         currentVert.setColor('black')
+
+
