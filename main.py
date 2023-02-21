@@ -1,8 +1,7 @@
 from DFSGraph import DFSGraph
 from Graph import Graph
 from bfs import bfs
-from dijkstra import dijkstra
-from prim import prim
+from dijkstra import Dijkstra
 from topo import Topo
 
 # g = Graph()
