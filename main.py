@@ -4,6 +4,7 @@ from bfs import bfs
 from dijkstra import dijkstra
 from prim import prim
 from topo import Topo
+from scc import SCC
 
 # g = Graph()
 # for i in range(6):
@@ -25,25 +26,53 @@ from topo import Topo
 
 # print(sum)
 
+## Demo for Topo
+# g = Graph()
+# for i in range(7):
+#     g.addVertex(i)
+    
+# g.addEdge(0, 1, 0)
+# g.addEdge(0, 3, 0)
+# g.addEdge(1, 2, 0)
+# g.addEdge(3, 4, 0)
+# g.addEdge(6, 3, 0)
+# g.addEdge(5, 4, 0)
+# g.addEdge(4, 2, 0)
+
+# topo = Topo(g)
+
+# topo.dfs()
+
+# order = topo.get_order()
+
+# for vertex in topo:
+#     print(f'Vertex {vertex.getId()} with order : {order[vertex]}')
+
+# print('Topological Order :', [vertex.getId() for vertex in topo.topo[::-1]])
+
+
 g = Graph()
-for i in range(7):
+for i in range(11):
     g.addVertex(i)
     
 g.addEdge(0, 1, 0)
-g.addEdge(0, 3, 0)
+g.addEdge(0, 7, 0)
 g.addEdge(1, 2, 0)
+g.addEdge(2, 3, 0)
+g.addEdge(3, 1, 0)
 g.addEdge(3, 4, 0)
-g.addEdge(6, 3, 0)
-g.addEdge(5, 4, 0)
-g.addEdge(4, 2, 0)
+g.addEdge(4, 5, 0)
+g.addEdge(5, 6, 0)
+g.addEdge(6, 4, 0)
+g.addEdge(7, 8, 0)
+g.addEdge(8, 3, 0)
+g.addEdge(8, 9, 0)
+g.addEdge(9, 10, 0)
+g.addEdge(9, 7, 0)
+g.addEdge(10, 7, 0)
 
-topo = Topo(g)
+scc = SCC(g)
 
-topo.dfs()
+scc.dfs()
 
-order = topo.get_order()
-
-for vertex in topo:
-    print(f'Vertex {vertex.getId()} with order : {order[vertex]}')
-
-print('Topological Order :', [vertex.getId() for vertex in topo.topo[::-1]])
+print(scc.scc)
